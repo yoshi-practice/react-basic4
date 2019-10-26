@@ -23,12 +23,11 @@ class App extends Component{
     render(){
       return(
         <ul>
-          {
-            this.state.todos.map(
+          {this.state.todos.map(
               (todo) => {
                 return (
                   <li key={todo.id}>{todo.text}
-                    <button onClick={this.state.deleteTodo.bind(this, todo.id)}>×</button>
+                    <button onClick={this.deleteTodo.bind(this,todo.id)}>×</button>
                   </li>
                 );
               }
