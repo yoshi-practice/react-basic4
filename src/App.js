@@ -4,6 +4,7 @@ class App extends Component{
   constructor(props){
     super(props);
 
+    // 初期値の設定
     this.state = {
       todos: [
         {id: "1", text: "todo1"},
@@ -15,6 +16,7 @@ class App extends Component{
 
     deleteTodo(id){
       let todos = this.state.todos;
+      // filterを使って情報を削除
       todos = todos.filter((todo) => todo.id !== id);
 
       this.setState({todos: todos});
@@ -23,9 +25,11 @@ class App extends Component{
     render(){
       return(
         <ul>
+          {/* Array objectをmapで処理 */}
           {this.state.todos.map(
               (todo) => {
                 return (
+                  // リスト表示するには keyが必要
                   <li key={todo.id}>{todo.text}
                     <button onClick={this.deleteTodo.bind(this,todo.id)}>×</button>
                   </li>
